@@ -1,0 +1,23 @@
+{
+  "name": "react-native-swipe-view",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix/react-native-swipe-view.git"
+  },
+  "version": "1.0.0",
+  "description": "Native container view for enabling swipe actions (for example to enable swipe to delete and such)",
+  "nativePackage": true,
+  "bugs": {
+    "url": "https://github.com/wix/react-native-swipe-view/issues"
+  },
+  "homepage": "https://github.com/wix/react-native-swipe-view",
+  "main": "index.js",
+  "author": "Artal Druk <artald@wix.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": ">=0.21.0"
+  }
+}
