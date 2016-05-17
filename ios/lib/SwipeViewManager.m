@@ -82,14 +82,7 @@
 
   if ([view isKindOfClass:[RCTRootView class]])
   {
-    RCTRootView *rootView = (RCTRootView*)view;
-    [rootView cancelTouches];
-    
-//    CATransition *fadeTransition = [CATransition animation];
-//    fadeTransition.duration = 0.25;
-//    fadeTransition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-//    fadeTransition.type = kCATransitionFade;
-//    [self.layer addAnimation:fadeTransition forKey:nil];
+    [(RCTRootView*)view cancelTouches];
   }
 }
 
@@ -134,11 +127,13 @@
   {
     CGFloat centerDiff = self.originalCenter.x - self.center.x;
     CGFloat velocityX = [panGesture velocityInView:self].x;
+    int direction = (velocityX < 0) ? -1 : 1;
+    NSString *directionString = (direction < 0) ? @"left" : @"right";
     if (fabs(centerDiff) > self.minPanToComplete || fabs(velocityX) > 2000)
     {
       if (_onWillBeSwipedOut)
       {
-        _onWillBeSwipedOut(@{});
+        _onWillBeSwipedOut(@{@"direction": directionString});
         self.onWillBeSwipedOut = nil;
       }
       
@@ -146,19 +141,18 @@
       [UIView animateWithDuration:duration
                        animations:^()
        {
-         int direction = (velocityX < 0) ? -1 : 1;
+         
          self.center = CGPointMake(self.center.x + fabs(centerDiff) * direction, self.center.y);
        }
                        completion:^(BOOL finished)
        {
          if (_onSwipedOut)
          {
-           _onSwipedOut(@{});
+           _onSwipedOut(@{@"direction": directionString});
            self.onSwipedOut = nil;
          }
          
          [self restoreScrolling];
-         [self removeFromSuperview];
        }];
     }
     else
