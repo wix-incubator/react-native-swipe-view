@@ -20,6 +20,7 @@
 @property (nonatomic) BOOL changeAlpha;
 @property (nonatomic) CGFloat bounceBackAnimDuration;
 @property (nonatomic) CGFloat bounceBackAnimDamping;
+@property (nonatomic, copy) RCTDirectEventBlock onSwipeStart;
 @property (nonatomic, copy) RCTDirectEventBlock onWillBeSwipedOut;
 @property (nonatomic, copy) RCTDirectEventBlock onSwipedOut;
 @property (nonatomic, copy) RCTDirectEventBlock onWillBounceBack;
@@ -110,6 +111,12 @@
     }
     
     [self cancelCurrentTouch];
+      
+    NSString *directionString = ([panGesture velocityInView:self].x < 0) ? @"left" : @"right";
+    if (_onSwipeStart)
+    {
+      _onSwipeStart(@{@"direction": directionString});
+    }
   }
   else if(panGesture.state == UIGestureRecognizerStateChanged)
   {
@@ -162,7 +169,6 @@
       if (_onWillBounceBack)
       {
         _onWillBounceBack(@{});
-        self.onWillBounceBack = nil;
       }
       
       [UIView animateWithDuration:self.bounceBackAnimDuration
@@ -181,7 +187,6 @@
          if (_onBouncedBack)
          {
            _onBouncedBack(@{});
-           self.onBouncedBack = nil;
          }
        }];
     }
@@ -203,6 +208,7 @@ RCT_REMAP_VIEW_PROPERTY(changeOpacity, changeAlpha, BOOL)
 RCT_REMAP_VIEW_PROPERTY(minPanToComplete, minPanToComplete, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(bounceBackAnimDuration, bounceBackAnimDuration, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(bounceBackAnimDamping, bounceBackAnimDamping, CGFloat)
+RCT_REMAP_VIEW_PROPERTY(onSwipeStart, onSwipeStart, RCTDirectEventBlock)
 RCT_REMAP_VIEW_PROPERTY(onWillBeSwipedOut, onWillBeSwipedOut, RCTDirectEventBlock)
 RCT_REMAP_VIEW_PROPERTY(onSwipedOut, onSwipedOut, RCTDirectEventBlock)
 RCT_REMAP_VIEW_PROPERTY(onWillBounceBack, onWillBounceBack, RCTDirectEventBlock)
