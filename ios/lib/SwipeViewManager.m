@@ -18,6 +18,7 @@
 @property (nonatomic) CGFloat minPanToComplete;
 @property (nonatomic) CGPoint originalCenter;
 @property (nonatomic) BOOL changeAlpha;
+@property (nonatomic) BOOL removeViewOnSwipedOut;
 @property (nonatomic) CGFloat bounceBackAnimDuration;
 @property (nonatomic) CGFloat bounceBackAnimDamping;
 @property (nonatomic, copy) RCTDirectEventBlock onSwipeStart;
@@ -37,6 +38,7 @@
   if (self)
   {
     self.changeAlpha = NO;
+    self.removeViewOnSwipedOut = NO;
     self.minPanToComplete = kMinPanToCompleteUndefined;
     self.bounceBackAnimDuration = kDefaultBounceBackDuration;
     self.bounceBackAnimDamping = kDefaultSpringDamping;
@@ -157,6 +159,11 @@
          {
            _onSwipedOut(@{@"direction": directionString});
            self.onSwipedOut = nil;
+
+           if(self.removeViewOnSwipedOut)
+           {
+             [self removeFromSuperview];
+           }
          }
          
          [self restoreScrolling];
@@ -205,6 +212,7 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_REMAP_VIEW_PROPERTY(changeOpacity, changeAlpha, BOOL)
+RCT_REMAP_VIEW_PROPERTY(removeViewOnSwipedOut, removeViewOnSwipedOut, BOOL)
 RCT_REMAP_VIEW_PROPERTY(minPanToComplete, minPanToComplete, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(bounceBackAnimDuration, bounceBackAnimDuration, CGFloat)
 RCT_REMAP_VIEW_PROPERTY(bounceBackAnimDamping, bounceBackAnimDamping, CGFloat)
