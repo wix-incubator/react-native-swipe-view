@@ -16,12 +16,12 @@ public class SwipeViewPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

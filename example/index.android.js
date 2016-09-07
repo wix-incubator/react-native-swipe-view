@@ -1,51 +1,83 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * @flow
  */
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    ScrollView,
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
+
+import {SwipeView} from 'react-native-swipe-view';
 
 class example extends Component {
   render() {
     return (
-      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+          {this.renderSwipeView()}
+        </ScrollView>
+    );
+  }
+
+  renderSwipeView() {
+    return (
+      <SwipeView changeOpacity removeViewOnSwipedOut style={{borderWidth: 4}}
+                 onSwipeStart={(event) => console.warn('Started swipe!')}
+                 onWillBeSwipedOut={(event) => console.warn('onWillBeSwipedOut!')}
+                 onSwipedOut={(event) => console.warn('onSwipedOut!')}
+                 onWillBounceBack={(event) => console.warn('onWillBounceBack!')}
+                 onBouncedBack={(event) => console.warn('onBouncedBack!')}
+      >
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
         </Text>
-      </View>
-    );
+      </SwipeView>
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 AppRegistry.registerComponent('example', () => example);
