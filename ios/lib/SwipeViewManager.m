@@ -73,17 +73,27 @@
   }
 }
 
+-(RCTRootView*)getRootView
+{
+    UIView *view = self;
+    while (view.superview != nil)
+    {
+        view = view.superview;
+        if ([view isKindOfClass:[RCTRootView class]])
+            break;
+    }
+    
+    if ([view isKindOfClass:[RCTRootView class]])
+    {
+        return view;
+    }
+    return nil;
+}
+
 -(void)cancelCurrentTouch
 {
-  UIView *view = self;
-  while (view.superview != nil)
-  {
-    view = view.superview;
-    if ([view isKindOfClass:[RCTRootView class]])
-      break;
-  }
-
-  if ([view isKindOfClass:[RCTRootView class]])
+  RCTRootView *view = [self getRootView];
+  if (view != nil)
   {
     [(RCTRootView*)view cancelTouches];
   }
@@ -146,12 +156,18 @@
         self.onWillBeSwipedOut = nil;
       }
       
+      CGFloat distanceForSwipe = fabs(centerDiff);
+      UIView *parentView = [self getRootView];
+      if(parentView != nil)
+      {
+          distanceForSwipe = parentView.frame.size.width - self.center.x + self.frame.size.width * 0.5;
+      }
+        
       NSTimeInterval duration = MIN(0.3, fabs(self.minPanToComplete / velocityX));
       [UIView animateWithDuration:duration
                        animations:^()
        {
-         
-         self.center = CGPointMake(self.center.x + fabs(centerDiff) * direction, self.center.y);
+         self.center = CGPointMake(self.center.x + distanceForSwipe * direction, self.center.y);
        }
                        completion:^(BOOL finished)
        {
