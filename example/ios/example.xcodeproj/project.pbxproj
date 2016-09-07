@@ -20,9 +20,10 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		D86827471CE8777C009ABC81 /* libSwipeView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D86827461CE87776009ABC81 /* libSwipeView.a */; };
+		C0F19F161D7FF31B00DBB684 /* libSwipeView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F19F151D7FF31200DBB684 /* libSwipeView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,9 +104,9 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		D86827451CE87776009ABC81 /* PBXContainerItemProxy */ = {
+		C0F19F141D7FF31200DBB684 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D86827371CE87776009ABC81 /* SwipeView.xcodeproj */;
+			containerPortal = C0F19F061D7FF31200DBB684 /* SwipeView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D803C61F1CE8769E006B214F;
 			remoteInfo = SwipeView;
@@ -134,7 +135,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		D86827371CE87776009ABC81 /* SwipeView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeView.xcodeproj; path = "../node_modules/react-native-swipe-view/ios/lib/SwipeView.xcodeproj"; sourceTree = "<group>"; };
+		C0F19F061D7FF31200DBB684 /* SwipeView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeView.xcodeproj; path = "../node_modules/react-native-swipe-view/ios/lib/SwipeView.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D86827471CE8777C009ABC81 /* libSwipeView.a in Frameworks */,
+				C0F19F161D7FF31B00DBB684 /* libSwipeView.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -272,7 +274,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				D86827371CE87776009ABC81 /* SwipeView.xcodeproj */,
+				C0F19F061D7FF31200DBB684 /* SwipeView.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -316,10 +318,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D86827381CE87776009ABC81 /* Products */ = {
+		C0F19F071D7FF31200DBB684 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D86827461CE87776009ABC81 /* libSwipeView.a */,
+				C0F19F151D7FF31200DBB684 /* libSwipeView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,8 +433,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = D86827381CE87776009ABC81 /* Products */;
-					ProjectRef = D86827371CE87776009ABC81 /* SwipeView.xcodeproj */;
+					ProductGroup = C0F19F071D7FF31200DBB684 /* Products */;
+					ProjectRef = C0F19F061D7FF31200DBB684 /* SwipeView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -514,11 +516,11 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D86827461CE87776009ABC81 /* libSwipeView.a */ = {
+		C0F19F151D7FF31200DBB684 /* libSwipeView.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSwipeView.a;
-			remoteRef = D86827451CE87776009ABC81 /* PBXContainerItemProxy */;
+			remoteRef = C0F19F141D7FF31200DBB684 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -604,10 +606,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -625,10 +623,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -650,6 +644,7 @@
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
@@ -669,6 +664,7 @@
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
