@@ -10,7 +10,7 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View, TouchableOpacity
 } from 'react-native';
 
 import {SwipeView} from 'react-native-swipe-view';
@@ -47,16 +47,20 @@ class example extends Component {
                  onWillBounceBack={(event) => console.warn('onWillBounceBack!')}
                  onBouncedBack={(event) => console.warn('onBouncedBack!')}
       >
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <TouchableOpacity onPress={()=>console.error('BAM')}>
+          <View>
+          <Text style={styles.welcome}>
+            Welcome to React Native!
+          </Text>
+          <Text style={styles.instructions}>
+            To get started, edit index.ios.js
+          </Text>
+          <Text style={styles.instructions}>
+            Press Cmd+R to reload,{'\n'}
+            Cmd+D or shake for dev menu
+          </Text>
+            </View>
+        </TouchableOpacity>
       </SwipeView>
     )
   }

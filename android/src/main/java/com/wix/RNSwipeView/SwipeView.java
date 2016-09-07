@@ -5,6 +5,8 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
+import com.facebook.react.uimanager.RootViewUtil;
+
 public class SwipeView extends ViewGroup {
 
     public interface SwipeViewListener {
@@ -43,13 +45,38 @@ public class SwipeView extends ViewGroup {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        int action = MotionEventCompat.getActionMasked(event);
+        switch(action) {
+            case (MotionEvent.ACTION_DOWN):
+                initialX = event.getRawX();
+                return false;
+            case (MotionEvent.ACTION_MOVE) :
+                float deltaX = event.getRawX() - initialX;
+                boolean nowSwiping = Math.abs(deltaX) > MIN_DISABLE_SCROLL;
+                if (!swiping && nowSwiping && listener != null) {
+                    listener.onSwipeStart();
+                }
+
+                swiping = swiping || nowSwiping;
+                if(swiping) {
+                    RootViewUtil.getRootView(this).onChildStartedNativeGesture(event);
+                }
+                return swiping;
+            case (MotionEvent.ACTION_UP) :
+            case (MotionEvent.ACTION_CANCEL) :
+            case (MotionEvent.ACTION_OUTSIDE) :
+                swiping = false;
+            default:
+                return false;
+        }
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = MotionEventCompat.getActionMasked(event);
 
         switch(action) {
-            case (MotionEvent.ACTION_DOWN) :
-                initialX = event.getRawX();
-                return true;
             case (MotionEvent.ACTION_MOVE) :
                 float deltaX = event.getRawX() - initialX;
                 handleMove(deltaX);
@@ -69,11 +96,6 @@ public class SwipeView extends ViewGroup {
             float newAlpha = 1 - 0.9f * Math.min(1, Math.abs(deltaX) / swipeOutDistance);
             setAlpha(newAlpha);
         }
-        boolean nowSwiping = Math.abs(deltaX) > MIN_DISABLE_SCROLL;
-        if (!swiping && nowSwiping && listener != null) {
-            listener.onSwipeStart();
-        }
-        swiping = swiping || nowSwiping;
         requestDisallowInterceptTouchEvent(swiping);
     }
 
@@ -85,7 +107,6 @@ public class SwipeView extends ViewGroup {
         } else {
             animateBack(swiping);
         }
-        swiping = false;
         return super.onTouchEvent(event);
     }
 
