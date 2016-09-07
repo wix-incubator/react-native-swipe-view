@@ -3,6 +3,7 @@ package com.wix.RNSwipeView;
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
 import com.facebook.react.uimanager.RootViewUtil;
@@ -17,7 +18,7 @@ public class SwipeView extends ViewGroup {
         void onBouncedBack();
     }
 
-    private static final float MIN_DISABLE_SCROLL = 10f;
+    private static final float MIN_DISABLE_SCROLL = new ViewConfiguration().getScaledPagingTouchSlop();
     private static final boolean DEFAULT_ANIMATE_OPACITY = true;
     private float initialX = 0;
     private boolean swiping = false;
@@ -66,7 +67,6 @@ public class SwipeView extends ViewGroup {
             case (MotionEvent.ACTION_UP) :
             case (MotionEvent.ACTION_CANCEL) :
             case (MotionEvent.ACTION_OUTSIDE) :
-                swiping = false;
             default:
                 return false;
         }
@@ -107,6 +107,7 @@ public class SwipeView extends ViewGroup {
         } else {
             animateBack(swiping);
         }
+        swiping = false;
         return super.onTouchEvent(event);
     }
 
