@@ -8,8 +8,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
  */
 public class WillBeSwipedOutEvent extends Event<WillBeSwipedOutEvent> {
 
-    public WillBeSwipedOutEvent(int viewTag, long timestampMs) {
-        super(viewTag, timestampMs);
+    public WillBeSwipedOutEvent(int viewTag) {
+        super(viewTag);
     }
 
     @Override

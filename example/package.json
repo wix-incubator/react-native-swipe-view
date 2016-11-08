@@ -6,8 +6,8 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "0.31.0",
-    "react": "15.2.1",
+    "react-native": "0.37.0",
+    "react": "15.3.2",
     "react-native-swipe-view": "file:../"
   }
 }

@@ -65,27 +65,27 @@ public class SwipeViewManager extends ViewGroupManager<SwipeView> {
 
         @Override
         public void onSwipeStart() {
-            mEventDispatcher.dispatchEvent(new SwipeStartEvent(mSwipeView.getId(), System.nanoTime()));
+            mEventDispatcher.dispatchEvent(new SwipeStartEvent(mSwipeView.getId()));
         }
 
         @Override
         public void onWillBeSwipedOut() {
-            mEventDispatcher.dispatchEvent(new WillBeSwipedOutEvent(mSwipeView.getId(), System.nanoTime()));
+            mEventDispatcher.dispatchEvent(new WillBeSwipedOutEvent(mSwipeView.getId()));
         }
 
         @Override
         public void onSwipedOut() {
-            mEventDispatcher.dispatchEvent(new SwipedOutEvent(mSwipeView.getId(), System.nanoTime()));
+            mEventDispatcher.dispatchEvent(new SwipedOutEvent(mSwipeView.getId()));
         }
 
         @Override
         public void onWillBounceBack() {
-            mEventDispatcher.dispatchEvent(new WillBounceBackEvent(mSwipeView.getId(), System.nanoTime()));
+            mEventDispatcher.dispatchEvent(new WillBounceBackEvent(mSwipeView.getId()));
         }
 
         @Override
         public void onBouncedBack() {
-            mEventDispatcher.dispatchEvent(new BouncedBackEvent(mSwipeView.getId(), System.nanoTime()));
+            mEventDispatcher.dispatchEvent(new BouncedBackEvent(mSwipeView.getId()));
         }
     }
 }

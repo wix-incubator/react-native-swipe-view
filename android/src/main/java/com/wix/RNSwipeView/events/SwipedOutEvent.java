@@ -8,8 +8,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
  */
 public class SwipedOutEvent extends Event<SwipedOutEvent> {
 
-    public SwipedOutEvent(int viewTag, long timestampMs) {
-        super(viewTag, timestampMs);
+    public SwipedOutEvent(int viewTag) {
+        super(viewTag);
     }
 
     @Override

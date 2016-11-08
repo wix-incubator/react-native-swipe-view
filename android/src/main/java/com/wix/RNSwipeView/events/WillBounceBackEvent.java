@@ -8,8 +8,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
  */
 public class WillBounceBackEvent extends Event<WillBounceBackEvent> {
 
-    public WillBounceBackEvent(int viewTag, long timestampMs) {
-        super(viewTag, timestampMs);
+    public WillBounceBackEvent(int viewTag) {
+        super(viewTag);
     }
 
     @Override

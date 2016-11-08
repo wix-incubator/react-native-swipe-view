@@ -8,8 +8,8 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
  */
 public class SwipeStartEvent extends Event<SwipeStartEvent> {
 
-    public SwipeStartEvent(int viewTag, long timestampMs) {
-        super(viewTag, timestampMs);
+    public SwipeStartEvent(int viewTag) {
+        super(viewTag);
     }
 
     @Override
