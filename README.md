@@ -68,8 +68,8 @@ import {SwipeView} from 'react-native-swipe-view';
 | minPanToComplete | 0.5 | Number | The distance from the view center which needs to be completed in percents for the "swipe out" action to happen. If the threshold is not reached it will bounce back |
 | bounceBackAnimDuration | 0.35 | Number | Duration of bounce back animation when the threshold defined in minPanToComplete is not matched |
 | bounceBackAnimDamping | 0.65 | Number | Damping param of iOS bounce back animation when the threshold defined in minPanToComplete is not matched |
-| onSwipeStart | 00 | Function | Callback function which is called when the swiping action starts. A `direction` param is provided wiht `left` or `right` value  |
-| onWillBeSwipedOut | 00 | Function | Callback function which is called right before a view is swiped out (when it passed the minPanToComplete threshold). A `direction` param is provided wiht `left` or `right` value |
-| onSwipedOut | 00 | Function | Callback function which is called after the "swiped out" animation is done. A `direction` param is provided wiht `left` or `right` value |
-| onWillBounceBack | 00 | Function | Callback function which is called right before a view bounces back (when it fails to pass the minPanToComplete threshold). A `direction` param is provided wiht `left` or `right` value |
-| onBouncedBack | 00 | Function | Callback function which is called after the "bounce back" animation is done. A `direction` param is provided wiht `left` or `right` value |
+| onSwipeStart | - | Function | Callback function which is called when the swiping action starts. A `direction` param is provided wiht `left` or `right` value  |
+| onWillBeSwipedOut | - | Function | Callback function which is called right before a view is swiped out (when it passed the minPanToComplete threshold). A `direction` param is provided wiht `left` or `right` value |
+| onSwipedOut | - | Function | Callback function which is called after the "swiped out" animation is done. A `direction` param is provided wiht `left` or `right` value |
+| onWillBounceBack | - | Function | Callback function which is called right before a view bounces back (when it fails to pass the minPanToComplete threshold). A `direction` param is provided wiht `left` or `right` value |
+| onBouncedBack | - | Function | Callback function which is called after the "bounce back" animation is done. A `direction` param is provided wiht `left` or `right` value |
