@@ -61,6 +61,7 @@ import {SwipeView} from 'react-native-swipe-view';
 ```
 
 ##supported props
+
 | prop | default | type | description |
 | ---- | ---- | ----| ---- |
 | changeOpacity | false | Boolean | Should the component change content alphw while dragging |
