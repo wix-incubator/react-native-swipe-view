@@ -1,14 +1,14 @@
 # react-native-swipe-view
 A native container which provides a smooth drag interaction with any react-native view to implement a horizontal swiping behaviour, for example: swiping a "card" view out of the screen to delete it.
 
-##Installation
+## Installation
 Install from `npm`:
 
 `npm i --save react-native-swipe-view`
 
 Now link the native libraries:
 
-####Android
+#### Android
 Add to the app `build.gradle` dependencies:
 
 ```
@@ -37,10 +37,10 @@ protected List<ReactPackage> getPackages() {
 };
 ```
 
-####iOS
+#### iOS
 In Xcode, drag the `SwipeView.xcodeproj` from your node modules to the libraries list in the Project Navigator. Then add `libSwipeView` to your app target "Linked Frameworks and Libraries"
 
-##Usage
+## Usage
 `react-native-swipe-view` export a Component called `SwipeView` which you can use to wrap any hirarchy of child views that you wish to be contained and interacted with a swipe behavior.
 
 For example:
@@ -60,7 +60,7 @@ import {SwipeView} from 'react-native-swipe-view';
 </SwipeView>
 ```
 
-##supported props
+## supported props
 
 | prop | default | type | description |
 | ---- | ---- | ----| ---- |
